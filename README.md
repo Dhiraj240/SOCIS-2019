@@ -1,2 +1,2 @@
-# hpx_example
-This repository contains the example for using [hpx](https://github.com/STEllAR-GROUP/hpx)
+# SOCIS
+This repository contains documentation of the work done and pypi package publishment. 
