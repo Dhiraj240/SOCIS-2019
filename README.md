@@ -1,2 +1,3 @@
 # SOCIS
-This repository contains documentation of the work done and pypi package publishment. 
+This repository contains documentation of the work done in 
+## Summer of Code In Space program 2019
