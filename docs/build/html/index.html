@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to docker’s documentation! &#8212; docker 1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-docker-s-documentation">
+<h1>Welcome to docker’s documentation!<a class="headerlink" href="#welcome-to-docker-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Here I have made a documentation for docker image/container for <strong>esajpip</strong> server under <strong>Summer of Code in Space program 2019</strong></p>
+<p>Check my container at <a class="reference external" href="https://hub.docker.com/r/dhiraj240/dockeresa">https://hub.docker.com/r/dhiraj240/dockeresa</a></p>
+<p><strong>Points to ponder while developing docker image:</strong></p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>To reduce container size use</dt><dd><p><code class="docutils literal notranslate"><span class="pre">FROM</span> <span class="pre">alpine</span></code>
+<code class="docutils literal notranslate"><span class="pre">Inside</span> <span class="pre">Dockerfile</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>To optimize the Dockerfile structure use the process of building a script first like below</dt><dd><dl class="simple">
+<dt>Inside script.sh use</dt><dd><p><code class="docutils literal notranslate"><span class="pre">#!</span> <span class="pre">/bin/sh</span></code>
+<code class="docutils literal notranslate"><span class="pre">&lt;follow</span> <span class="pre">up</span> <span class="pre">the</span> <span class="pre">script</span> <span class="pre">development&gt;</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ol>
+<ul class="simple">
+<li><p>You can check my script.sh at <a class="reference external" href="https://github.com/Dhiraj240/dockeresa/blob/master/script.sh">https://github.com/Dhiraj240/dockeresa/blob/master/script.sh</a></p></li>
+<li><dl class="simple">
+<dt>Don’t forget to make the script executable using</dt><dd><p><code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">script.sh</span></code></p>
+</dd>
+</dl>
+</li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><dl class="simple">
+<dt>Then use below boilerplate in Dockerfile</dt><dd><p><code class="docutils literal notranslate"><span class="pre">COPY</span> <span class="pre">script.sh</span> <span class="pre">/script.sh</span></code>
+<code class="docutils literal notranslate"><span class="pre">CMD</span>&#160; <span class="pre">[&quot;/script.sh&quot;]</span></code></p>
+</dd>
+</dl>
+</li>
+</ol>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Then do below thing inside your Dockerfile directory</dt><dd><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span> <span class="pre">.</span></code></p>
+</dd>
+</dl>
+</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>There may be the case you face Docker Daemon error while executing <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span> <span class="pre">.</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Don’t worrry use below command</dt><dd><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">666</span> <span class="pre">/var/run/docker.sock</span></code></p>
+</dd>
+</dl>
+</li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><dl class="simple">
+<dt>Put your container on Docker Hub for that use below process</dt><dd><ul class="simple">
+<li><p>First signup on Docker Hub and create repository name.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">login</span></code></p></li>
+<li><dl class="simple">
+<dt>Then use docker images</dt><dd><p>It will list the docker image name and image id which you need to copy.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Now use <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">tag</span> <span class="pre">&lt;image</span> <span class="pre">id&gt;</span> <span class="pre">&lt;username&gt;/&lt;reponame&gt;:&lt;tag&gt;</span></code></dt><dd><p>Here tag could be like 01, 1.0 etc.</p>
+</dd>
+</dl>
+</li>
+<li><p>Finally do <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">push</span> <span class="pre">&lt;username&gt;/&lt;reponame&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">docker</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Dhiraj Sharma.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
